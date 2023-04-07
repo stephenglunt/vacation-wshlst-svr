@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Destinations Wishlist</title>
+    <link rel="stylesheet" href="./css/glunt_style.css">
+    <script type="module" src="/js/gluntScript.js"></script>
+
+    <style>
+        .slideshow {
+            position: relative;
+            background-image: url('https://cdn.cnn.com/cnnnext/dam/assets/201230100522-11-2021-travel-destinations-italy.jpg');
+            background-size: cover;
+            background-position: center center;
+            animation-name: slideshow;
+            animation-duration: 200s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .slideshow::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(140, 140, 140, 0.7);
+            z-index: 0;
+            transition-duration: 1s;
+        }
+
+        @keyframes slideshow {
+            0% {
+                background-image: url('https://img.money.com/2019/02/190304-best-in-travel-2019-international-nanjing.jpg?quality=60');
+                animation-duration: 20s;
+            }
+
+            20% {
+                background-image: url('https://www.travelandleisure.com/thmb/rbPz5_6COrWFh94qFRHYLJrRM-g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/iguazu-falls-argentina-brazil-MOSTBEAUTIFUL0921-e967cc4764ca4eb2b9941bd1b48d64b5.jpg');
+                animation-duration: 20s;
+            }
+
+            40% {
+                background-image: url('https://static.theceomagazine.net/wp-content/uploads/2021/10/09085552/best-places-to-visit-in-europe-3300x1479-1-scaled.jpg');
+                animation-duration: 20s;
+            }
+
+            60% {
+                background-image: url('https://www.jetsetter.com//uploads/sites/7/2018/04/ZIKaCO6R-1380x1000.jpeg');
+                animation-duration: 20s;
+            }
+
+            80% {
+                background-image: url('https://www.farecompare.com/wp-content/uploads/2018/12/2019-Top-Travel-Destinations-Sydney.jpg');
+                animation-duration: 20s;
+            }
+
+            100% {
+                background-image: url('https://cdn.cnn.com/cnnnext/dam/assets/201230100522-11-2021-travel-destinations-italy.jpg');
+                animation-duration: 20s;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="big_title big_title-fluid slideshow">
+        <div class="container text-center" style="z-index: 8; position: relative; text-shadow: 10px 10px 20px #fff;">
+            <h1 class="heading-4">Vacation Destinations WishList</h1>
+            <p class="lead">Found exciting places to visit on your next vacation? Use the form below to add them to your
+                wishlist</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div action="/place" method="POST" id="destination_details_form">
+                    <div class="form-group">
+                        <label for="name">Destination Name</label>
+                        <input required="" minlength="2" type="text" class="form-control" id="name" name="name"
+                            placeholder="Name of the destination">
+                        <span id="name-error" class="invalidInput"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input required="" minlength="2" type="text" class="form-control" id="location" name="location"
+                            placeholder="Where is it located?">
+                        <span id="location-error" class="invalidInput"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo</label>
+                        <input type="text" class="form-control" id="photo" name="photo" placeholder="image url of destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea type="text" class="form-control" id="description" name="description"
+                            placeholder="List important details."></textarea>
+                    </div>
+                    <button class="btn btn-primary submit_btn" id="inputButton">Add to list</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h4 id="title">Enter destination details</h4>
+                <div id="destinations_container">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
